@@ -34,7 +34,7 @@ for(var i=0; i<7 ;i++){
             default: console.log(buttonInnerHTML);
                 break;
         }
-        
+        buttonAnimation(buttonInnerHTML);
     });
 }
 
@@ -72,8 +72,14 @@ document.addEventListener("keypress", function(event){
         default: console.log(buttonInnerHTML);
             break;
     }
-
+    buttonAnimation(event.key);
 });
-
+function buttonAnimation(currentKey){
+    var activeButton= document.querySelector("."+currentKey);
+    activeButton.classList.add("clicked");
+    setTimeout(function(){
+        activeButton.classList.remove("clicked");
+    }, 100);
+}
 
 
